@@ -1,0 +1,32 @@
+{
+  "name": "generator-mjs",
+  "version": "0.1.0",
+  "description": "A Yeoman generator for MeaningfulJS2 (based on Angular 2)",
+  "main": "index.js",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "files": [
+    "generators/app"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThirstyHead/generator-mjs.git"
+  },
+  "author": "Scott Davis <scott@thirstyhead.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThirstyHead/generator-mjs/issues"
+  },
+  "homepage": "https://github.com/ThirstyHead/generator-mjs#readme",
+  "dependencies": {
+    "fs-extra": "~0.26.5",
+    "git-config": "0.0.7",
+    "lodash": "~4.3.0",
+    "yeoman-generator": "~0.22.5"
+  }
+}
+
