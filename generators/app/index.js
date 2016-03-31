@@ -1,8 +1,8 @@
 'use strict';
-let yeoman = require('yeoman-generator');
-var gitConfig = require('git-config');
-var lodash = require('lodash');
-var fs = require('fs-extra');
+const yeoman = require('yeoman-generator');
+const gitConfig = require('git-config');
+const lodash = require('lodash');
+const fs = require('fs-extra');
 
 let MjsGenerator = yeoman.Base.extend({
     // pointer to this generator (set in constructor)
@@ -143,12 +143,12 @@ ${this.generator.destinationRoot()}
     // Step #3
     // Saving configurations and configure the project (creating .editorconfig files and other metadata files)
     configuring: function(){
-        var gen = this.generator;
+        let gen = this.generator;
 
         // download / install seed project into root directory
         // NOTE: Since Yeoman doesn't offer native 'git clone'
         //       support, using 'bower install' is an easy workaround.
-        var seedUrl = 'https://github.com/ThirstyHead/meaningfuljs2.git';
+        let seedUrl = 'https://github.com/ThirstyHead/meaningfuljs2.git';
         this.generator.bowerInstall([seedUrl], null, function(){
             // copy the contents of bower_components/seed/*
             // to the root dir, then clean up
@@ -158,19 +158,26 @@ ${this.generator.destinationRoot()}
             fs.removeSync('bower_components', function (err) {
                 if(err) { return console.error(err); }
             });
-            fs.removeSync('bower.json', function (err) {
-                if(err) { return console.error(err); }
-            });
+            // fs.removeSync('bower.json', function (err) {
+            //     if(err) { return console.error(err); }
+            // });
             fs.removeSync('.bower.json', function (err) {
                 if(err) { return console.error(err); }
             });
 
             // update package.json
-            var packageJson = fs.readJsonSync('./package.json');
+            let packageJson = fs.readJsonSync('./package.json');
             packageJson.name = gen.config.get('appName');
             packageJson.description = gen.config.get('appDescription');
             packageJson.author = gen.config.get('githubNameAndEmail');
             fs.writeJsonSync('./package.json', packageJson);
+
+            // update bower.json
+            let bowerJson = fs.readJsonSync('./bower.json');
+            bowerJson.name = gen.config.get('appName');
+            bowerJson.description = gen.config.get('appDescription');
+            bowerJson.author = gen.config.get('githubNameAndEmail');
+            fs.writeJsonSync('./bower.json', bowerJson);            
         });
     },
 
