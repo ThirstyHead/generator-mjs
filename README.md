@@ -1,5 +1,5 @@
 # generator-mjs
-Yeoman generator for MeaningfulJS<sup>2</sup> (based on Angular 2).
+Yeoman generator for MeaningfulJS<sup>2</sup> (based on Angular 2). For more information, see http://meaningfuljs.com.
 
 This generator allows you to trivially create a new project by typing `yo mjs [project-name]`.
 
